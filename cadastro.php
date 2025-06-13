@@ -5,14 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
 
 </head>
 
 <body class="container">
-    <h1>Informe seus dados para realizar o cadastro</h1>
 
+    <h1>SISTEMA DE TAREFAS</h1>
     <?php
    
     require_once 'funcao.php';
@@ -26,8 +25,8 @@
         <a href="deslogar.php">Deslogar</a>
     </nav>
     </p>
-    <br>
-    
+
+    <h3>Informe seus dados para realizar o cadastro</h3>
     <form action="validar_cadastro.php" method="post" class="form">
         <p>
             <label for="nome">Nome de Usuário:</label><br>
