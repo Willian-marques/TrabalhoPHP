@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
 
 </head>
 
@@ -14,7 +14,7 @@
     <h1>SISTEMA DE TAREFAS</h1>
     <?php
    
-    require_once 'funcao.php';
+    require_once 'includes/funcao.php';
     verificar_codigo();
     ?>
     <p>
@@ -22,12 +22,12 @@
         <a href="index.php">Home</a> |
         <a href="cadastro.php">Cadastro</a> |
         <a href="tarefas.php">Lista de Tarefas</a> |
-        <a href="deslogar.php">Deslogar</a>
+        <a href="includes/deslogar.php">Deslogar</a>
     </nav>
     </p>
 
     <h3>Informe seus dados para realizar o cadastro</h3>
-    <form action="validar_cadastro.php" method="post" class="form">
+    <form action="includes/validar_cadastro.php" method="post" class="form">
         <p>
             <label for="nome">Nome de Usuário:</label><br>
             <input type="text" name="nome" id="nome" required>

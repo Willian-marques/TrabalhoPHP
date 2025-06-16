@@ -10,7 +10,7 @@ session_start();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sistema de Login</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
 
 </head>
 
@@ -22,14 +22,14 @@ session_start();
         <a href="index.php">Home</a> |
         <a href="cadastro.php">Cadastro</a> |
         <a href="tarefas.php">Lista de Tarefas</a> |
-        <a href="deslogar.php">Deslogar</a>
+        <a href="includes/deslogar.php">Deslogar</a>
     </nav>
     </p>
 
 
     <?php
 
-        require_once 'funcao.php';
+        require_once 'includes/funcao.php';
         verificar_codigo();
 
         incluir_login();

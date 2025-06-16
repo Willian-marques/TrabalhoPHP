@@ -1,6 +1,6 @@
 <h3>Informe seus dados para acessar a sua Lista de Tarefas</h3>
 
-<form action="validar.php" method="post">
+<form action="includes/validar.php" method="post">
     <p>
         <label for="nome">Usuário:</label><br>
         <input type="text" name="nome" id="nome" required>

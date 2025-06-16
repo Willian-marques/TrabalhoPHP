@@ -1,4 +1,4 @@
-<?php require_once 'lock.php'; ?>
+<?php require_once 'includes/lock.php'; ?>
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lista Tarefas</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
     
 </head>
 
@@ -18,13 +18,13 @@
         <a href="index.php">Home</a> |
         <a href="cadastro.php">Cadastro</a> |
         <a href="tarefas.php">Lista de Tarefas</a> |
-        <a href="deslogar.php">Deslogar</a>
+        <a href="includes/deslogar.php">Deslogar</a>
     </nav>
     </p>
     <br>
     <h3>Criar nova tarefa: </h3>
 
-    <form action="nova_tarefa.php" method="post">
+    <form action="includes/nova_tarefa.php" method="post">
         <p>
             <label for="tarefa">Nova Tarefa: </label>
             <input type="text" name="tarefa" id="tarefa" required>
@@ -40,10 +40,10 @@
     <br>
 
     <?php
-        require_once 'funcao.php';
+        require_once 'includes/funcao.php';
         verificar_codigo();
 
-        require_once 'conexao.php';
+        require_once 'includes/conexao.php';
         $conn = conectar_banco();
 
         // Consulta segura com declaração preparada
@@ -68,10 +68,10 @@
                 // Botão de Editar
                 echo    ' <a class="btn btn-outline-primary btn-sm" 
                            style="margin-right: 5px;"
-                           href="editar_tarefa.php?id_tarefa=' . $id_tarefa . '">Editar</a>';
+                           href="includes/editar_tarefa.php?id_tarefa=' . $id_tarefa . '">Editar</a>';
 
                 // Formulário de Exclusão (proteção contra CSRF)
-                echo    '<form action="excluir_tarefa.php" method="post" style="display:inline;">
+                echo    '<form action="includes/excluir_tarefa.php" method="post" style="display:inline;">
                             <input type="hidden" name="id_tarefa" value="' . $id_tarefa . '">
                             <button type="submit" class="btn btn-outline-danger btn-sm" 
                                     style="--bs-btn-padding-y: .10rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">

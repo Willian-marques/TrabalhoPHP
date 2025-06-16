@@ -5,7 +5,7 @@ require_once 'funcao.php';
 
 // 2. Validar se os campos foram recebidos
 if (campos_em_branco()) { // Usa a função de funcao.php
-    header('location:cadastro.php?codigo=2');
+    header('location:../cadastro.php?codigo=2');
     exit;
 }
 
@@ -27,7 +27,7 @@ mysqli_stmt_store_result($stmt_check);
 // 6. Se encontrou algum registro, redireciona com erro
 if (mysqli_stmt_num_rows($stmt_check) > 0) {
     // CORREÇÃO: Redireciona para o código de erro correto (8 em vez de 10)
-    header('location:cadastro.php?codigo=8');
+    header('location:../cadastro.php?codigo=8');
     exit;
 }
 
@@ -43,9 +43,9 @@ mysqli_stmt_bind_param($stmt_insert, "sss", $nome, $senha_hash, $email);
 
 // 10. Executar o comando e verificar o resultado
 if (mysqli_stmt_execute($stmt_insert)) {
-    header('location:index.php'); // Sucesso, vai para a página de login
+    header('location:../index.php'); // Sucesso, vai para a página de login
 } else {
-    header('location:cadastro.php?codigo=5'); // Erro genérico de cadastro
+    header('location:../cadastro.php?codigo=5'); // Erro genérico de cadastro
 }
 
 mysqli_close($conn);

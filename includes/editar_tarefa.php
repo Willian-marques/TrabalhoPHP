@@ -9,7 +9,7 @@ $conn = conectar_banco();
 // Se for envio de formulário (POST)
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (!isset($_POST['id_tarefa'], $_POST['tarefa'])) {
-        header('location:tarefas.php?codigo=0');
+        header('location:../tarefas.php?codigo=0');
         exit;
     }
 
@@ -23,16 +23,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     mysqli_stmt_bind_param($stmt, "ssii", $tarefa, $descricao, $id_tarefa, $id_cliente);
 
     if (mysqli_stmt_execute($stmt)) {
-        header('location:tarefas.php?codigo=6');
+        header('location:../tarefas.php?codigo=6');
     } else {
-        header('location:tarefas.php?codigo=7');
+        header('location:../tarefas.php?codigo=7');
     }
     exit;
 }
 
 // Se for acesso via link (GET)
 if (!isset($_GET['id_tarefa'])) {
-    header('location:tarefas.php');
+    header('location:../tarefas.php');
     exit;
 }
 
@@ -48,7 +48,7 @@ mysqli_stmt_bind_result($stmt, $tarefa, $descricao);
 
 // Se não encontrar a tarefa ou ela não pertencer ao usuário, redireciona
 if (!mysqli_stmt_fetch($stmt)) {
-    header('location:tarefas.php?codigo=0');
+    header('location:../tarefas.php?codigo=0');
     exit;
 }
 mysqli_stmt_close($stmt); // Fecha a declaração anterior
@@ -61,7 +61,7 @@ mysqli_stmt_close($stmt); // Fecha a declaração anterior
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Editar Tarefa</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../css/style.css">
 
 </head>
 
@@ -70,14 +70,14 @@ mysqli_stmt_close($stmt); // Fecha a declaração anterior
     <h1>Editar Tarefa</h1>
 
     <nav class="mb-3">
-        <a href="index.php">Home</a> |
-        <a href="cadastro.php">Cadastro</a> |
-        <a href="tarefas.php">Lista de Tarefas</a> |
-        <a href="deslogar.php">Deslogar</a>
+        <a href="../index.php">Home</a> |
+        <a href="../cadastro.php">Cadastro</a> |
+        <a href="../tarefas.php">Lista de Tarefas</a> |
+        <a href="../includes/deslogar.php">Deslogar</a>
     </nav>
 
 
-    <form method="POST" action="editar_tarefa.php">
+    <form method="POST" action="../includes/editar_tarefa.php">
         <input type="hidden" name="id_tarefa" value="<?= htmlspecialchars($id_tarefa) ?>">
 
         <div class="mb-3">
@@ -93,7 +93,7 @@ mysqli_stmt_close($stmt); // Fecha a declaração anterior
         </div>
 
         <button type="submit" class="btn btn-primary">Salvar Alterações</button>
-        <a href="tarefas.php" class="btn btn-secondary">Cancelar</a>
+        <a href="../tarefas.php" class="btn btn-secondary">Cancelar</a>
     </form>
 
 </body>
