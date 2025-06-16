@@ -73,5 +73,5 @@ O banco de dados `bd_usuarios` consiste em duas tabelas principais:
 
 ## 👨‍💻 Autores
 
-* Willian Marque
+* Willian Marques
 * Gabriel Kremer
